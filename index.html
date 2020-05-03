@@ -1,0 +1,97 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Light ON/OFF</title>
+    <style>
+        body {
+            display: flex;
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, Helvetica, sans-serif;
+            justify-content: center;
+        }
+
+        button {
+            top: 1cm;
+            left: 1cm;
+            position: fixed;
+            border: none;
+            border-radius: 50%;
+            padding-bottom: 7mm;
+            padding-top: 7mm;
+            font-size: 19px;
+            background-color: rgba(0, 0, 0, 0);
+            box-shadow:1px 4px 50px 1px;
+        }
+
+        button:hover {
+            transform: scale(1.5);
+        }
+
+        #me {
+            bottom: 1cm;
+            left: 0;
+            position: fixed;
+            font-size: 20px;
+            transform: rotate(-40deg);
+        }
+    </style>
+</head>
+<body onload="onLoad()">
+    <h1 id="color">Click The button To Turn ON/OFF The light</h1>
+    <button id="colors" onclick="switchModes()">=>•<=</button>
+    <h5 id="me">By NooName_e</h5>
+<script>
+const mode = localStorage.mode;
+
+function switchModes() {
+    
+    if(localStorage.mode === "light") {
+        document.getElementById("me").style.color = "#ffff";
+        document.getElementById("colors").style.color = "#ffff";
+        document.getElementById("color").style.color = "#ffff";
+        document.body.style.backgroundColor = "#1A1A1A";
+        document.body.style.backgroundImage = "url('img/darkmode.png')";
+        localStorage.mode = "dark";
+    }
+
+    else if(localStorage.mode === "dark") {
+        document.getElementById("me").style.color = "#1A1A1A";
+        document.getElementById("colors").style.color = "#1A1A1A";
+        document.getElementById("color").style.color = "#1A1A1A";
+        document.body.style.backgroundColor = "#fff";
+        document.body.style.backgroundImage = "url('img/lightmode.png')";
+        localStorage.mode = "light";
+    }
+
+    else {
+        console.log("error");
+    }
+}
+
+function onLoad() {
+    
+    if(localStorage.mode === "light") {
+        document.getElementById("me").style.color = "#1A1A1A";
+        document.getElementById("colors").style.color = "#1A1A1A";
+        document.getElementById("color").style.color = "#1A1A1A";
+        document.body.style.backgroundColor = "#fff";
+        document.body.style.backgroundImage = "url('img/lightmode.png')";
+        localStorage.mode = "light";
+    }
+
+    else if(localStorage.mode === "dark") {
+        document.getElementById("me").style.color = "#ffff";
+        document.getElementById("colors").style.color = "#ffff";
+        document.getElementById("color").style.color = "#ffff";
+        document.body.style.backgroundColor = "#1A1A1A";
+        document.body.style.backgroundImage = "url('img/darkmode.png')";
+        localStorage.mode = "dark";
+
+    }
+
+}
+</script>
+</body>
+</html>
